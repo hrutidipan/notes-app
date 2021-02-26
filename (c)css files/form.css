@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.bgimg{
+    height: 100vh;
+    background-image:url("../(b)images/bg3.jpg");
+background-size: cover;
+
+}
+
+#profile{
+
+    width: 120px;
+    height: 120px;
+    position: relative; /*relative to the background*/
+    top: -60px;
+    left: 110px;;
+}
+.centerdiv{
+    width: 350px;
+    height: 400px;
+    position: absolute;  /*relative to the whole page*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*turns left and top by 50%*/
+    
+    background-color: rgba(8, 8, 228,0.6);
+}
+#s1{
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+   position: relative;
+   bottom: 75px;
+   color: aliceblue;
+   
+}
+
+.text1{
+
+    width: 80%;
+    height: 40px;
+    display: block;
+    margin: auto;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+#button1{
+    height: 30px;
+    width: 85%;
+    display: block;     /*these two lines display and margin help to align to cente the object*/
+    margin: auto;
+    background-color: rgb(20, 238, 30);
+    border-radius: 20px;
+    cursor: pointer;   
+}
