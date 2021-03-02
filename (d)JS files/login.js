@@ -18,8 +18,8 @@
   
 function register()
 {
-  var email=document.getElementById('button1').value;
-  var password=document.getElementById('button2').value;
+  var email=document.getElementById('text1').value;
+  var password=document.getElementById('text2').value;
   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
     alert('signup done successfully');
   }).catch(function(error)
