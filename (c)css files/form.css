@@ -68,3 +68,13 @@ background-size: cover;
     border-radius: 20px;
     cursor: pointer;   
 }
+
+#button2{
+    height: 30px;
+    width: 85%;
+    display: block;     /*these two lines display and margin help to align to cente the object*/
+    margin: auto;
+    background:linear-gradient(lightgreen,white);
+    border-radius: 20px;
+    cursor: pointer;   
+}

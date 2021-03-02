@@ -19,8 +19,8 @@
 function register()
 {
   var email=document.getElementById('button1').value;
-  var password=document.getElementById(button1).value;
-  firebase.auth().createUserWithEmailAndPassword(email,password),then(function(){
+  var password=document.getElementById('button2').value;
+  firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
     alert('signup done successfully');
   }).catch(function(error)
   {
