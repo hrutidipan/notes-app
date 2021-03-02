@@ -24,15 +24,16 @@ background-size: cover;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%); /*turns left and top by 50%*/
-    
-    background-color: rgba(8, 8, 228,0.6);
+    border: 2px solid;
+    border-radius:  20px; ;
+    background-color: rgba(8, 8, 228,0);
 }
 #s1{
     text-align: center;
     font-family: 'Libre Baskerville', serif;
    position: relative;
    bottom: 75px;
-   color: aliceblue;
+   color: black;
    
 }
 
@@ -45,6 +46,7 @@ background-size: cover;
     padding: 0 10px;
     text-align: center;
     border-radius: 20px;
+    background-color: white;
 }
 #text2{
 
@@ -55,13 +57,14 @@ background-size: cover;
     padding: 0 10px;
     text-align: center;
     border-radius: 20px;
+    background-color: white;
 }
 #button1{
     height: 30px;
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background-color: rgb(20, 238, 30);
+    background:linear-gradient(lightgreen,white);
     border-radius: 20px;
     cursor: pointer;   
 }

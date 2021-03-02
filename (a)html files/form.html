@@ -9,16 +9,19 @@
 
 <link rel="stylesheet" href="../(c)css files/form.css">
 <script src="../(d)JS files/login.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
 </head>
 <body>
 
     <div class="bgimg">
         <div class="centerdiv">
       <img src="../(b)images/profile2.png" id="profile">
-      <h2 id="s1">SIGN-IN</h2>
+      <h2 id="s1">SIGN-IN/SIGN-UP</h2>
+
       <form> 
           <div>
-              <input type="text" id="text1" placeholder="username"><br><br>
+              <input type="email" id="text1" placeholder="Enter your Email"><br><br>
               <input type="password" id="text2" placeholder="password">
           </div>
           <br>
@@ -26,9 +29,10 @@
           <div>
               <button id="button1" onclick="check();">LOGIN</button>
           </div>
+          <br>
+          <div> <button id="button1" onclick="register()">SIGNUP</button></div>
       </form>
-      <h3 id="s3">New to notesapp!!</h3>
-      <h4 id="s4"><a href="#">signup</a></h4>
+      
 
 
 
