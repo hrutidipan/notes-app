@@ -8,38 +8,57 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 
 <link rel="stylesheet" href="../(c)css files/form.css">
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-<script src="../(d)JS files/login.js"></script>   <!--order in which you link also matters -->
 </head>
 <body>
-
+    
     <div class="bgimg">
         <div class="centerdiv">
       <img src="../(b)images/profile2.png" id="profile">
       <h2 id="s1">SIGN-IN/SIGN-UP</h2>
 
-      <form> 
-          <div>
+       
+          <div id="login_div" class="main.div">
               <input type="email" id="text1" placeholder="Enter your Email"><br><br>
               <input type="password" id="text2" placeholder="password">
           </div>
           <br>
           <br>
           <div>
-              <button id="button1" onclick="check();">LOGIN</button>
+              <button id="button1" onclick="login();">LOGIN</button>
           </div>
           <br>
-          <div> <button id="button2" onclick="register();">SIGNUP</button></div>
-      </form>
+          <button id="button2" onclick="register();">SIGNUP</button>
+        </div>
       
 
-
-
-
     </div>
     </div>
-    <form></form>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+ <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+ 
+ <script>
+   // Your web app's Firebase configuration
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   var firebaseConfig = {
+     apiKey: "AIzaSyDoqPlYgLEUUyirulXKMUULhAlj4ih3up0",
+     authDomain: "notesapp-efdd4.firebaseapp.com",
+     projectId: "notesapp-efdd4",
+     storageBucket: "notesapp-efdd4.appspot.com",
+     messagingSenderId: "678668896822",
+     appId: "1:678668896822:web:b149d646c41fc918ce2697",
+     measurementId: "G-J89YDXHP2Y"
+   };
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   firebase.auth();
+ </script>
+ <script src="../(d)JS files/login.js"></script>   <!--order in which you link also matters -->
+     
+
     
 </body>
 </html>
