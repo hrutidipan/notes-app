@@ -64,7 +64,7 @@ background-size: cover;
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(lightgreen,white);
+    background:linear-gradient(orange,yellow);
     border-radius: 20px;
     cursor: pointer;   
 }
@@ -74,7 +74,7 @@ background-size: cover;
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(lightgreen,white);
+    background:linear-gradient(orange,yellow);
     border-radius: 20px;
     cursor: pointer;   
 }
