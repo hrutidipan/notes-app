@@ -37,3 +37,14 @@ function login(){
   
 }
 
+function signout() {
+  
+}
+firebase.auth().signOut().then(() => {
+  // Sign-out successful.
+  window.alert("Sign-out successful");
+}).catch((error) => {
+  window.alert("Error");
+  // An error happened.
+});
+
