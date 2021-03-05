@@ -66,8 +66,11 @@ background-size: cover;
     margin: auto;
     background:linear-gradient(orange,yellow);
     border-radius: 20px;
-    cursor: pointer;   
+    cursor: pointer; 
+
+      
 }
+
 
 #button2{
     height: 30px;

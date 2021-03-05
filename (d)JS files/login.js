@@ -25,7 +25,8 @@ function login(){
   .then((userCredential) => {
     // Signed in
     var user = userCredential.user;
-    window.alert("success");
+    window.alert("login successful");
+    window.location.href="index4.html";
     // ...
   })
   .catch((error) => {
