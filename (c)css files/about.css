@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.about{
+    background-image: url("../(b)images/about.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+    color: rgb(245, 183, 12);
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+
+h3{
+    color: rgb(55, 14, 236);
+    font-family: 'Akaya Telivigala', cursive; 
+    word-spacing: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px;
+    line-height: 50px;
+    font-size: 20px;
+    position:absolute;
+    left: 2px;
+    
+}
+
+#return{
+    position: absolute;
+    left: 1100px;
+    top: 550px;
+    height: 50px;
+    border: 5px solid;
+    border-color: cyan;
+    border-radius: 20px;
+    margin: 5px;
+    text-align: center;
+    background-color: transparent;
+    font-weight: bolder;
+}
+#return:hover{
+    color:blue;
+    background-color: white;
+}

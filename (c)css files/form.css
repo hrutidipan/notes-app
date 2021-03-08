@@ -70,6 +70,9 @@ background-size: cover;
 
       
 }
+#button1:hover{
+    color: rgb(249, 250, 249);
+}
 
 
 #button2{
@@ -80,4 +83,8 @@ background-size: cover;
     background:linear-gradient(orange,yellow);
     border-radius: 20px;
     cursor: pointer;   
+}
+#button2:hover{
+    color: rgb(248, 250, 244);
+    ;
 }
