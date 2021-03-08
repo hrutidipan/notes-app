@@ -17,6 +17,21 @@ function register() {
   });
 }
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    // window.location.href="index4.html";
+    document.getElementById('signupbtn').style.display="none";
+    document.getElementById('signoutbtn').style.display="initial";
+
+  } else {
+    // No user is signed in.
+    // window.location.href="index4.html";
+    document.getElementById('signupbtn').style.display="initial";
+    document.getElementById('signoutbtn').style.display="none";
+ }
+});
+
 function login(){
   var useremail=document.getElementById('text1').value;
   var password=document.getElementById('text2').value;

@@ -32,7 +32,7 @@ background-size: cover;
     text-align: center;
     font-family: 'Libre Baskerville', serif;
    position: relative;
-   bottom: 75px;
+   bottom: 60px;
    color: black;
    
 }
@@ -64,7 +64,7 @@ background-size: cover;
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(orange,yellow);
+    background:linear-gradient(rgba(3, 134, 91, 0.863),rgb(5, 248, 78));
     border-radius: 20px;
     cursor: pointer; 
 
