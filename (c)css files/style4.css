@@ -76,6 +76,7 @@ font-family:sans-serif;
 }
 
 
+
 .heading1{
     width: 80%;
     height: 70%;
@@ -122,6 +123,6 @@ font-family:sans-serif;
 }
 #create:hover{
     color: greenyellow;
-     -webkit-transform: rotate(360deg) ; 
+     -webkit-transform: rotate(180deg) ; 
 }
 

@@ -42,6 +42,7 @@ function login(){
     var user = userCredential.user;
     window.alert("login successful");
     window.location.href="index4.html";
+    
     // ...
   })
   .catch((error) => {
@@ -53,13 +54,12 @@ function login(){
 }
 
 function signout() {
-  
+  firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+    window.alert("Sign-out successful");
+  }).catch((error) => {
+    window.alert("Error");
+    // An error happened.
+  });
 }
-firebase.auth().signOut().then(() => {
-  // Sign-out successful.
-  window.alert("Sign-out successful");
-}).catch((error) => {
-  window.alert("Error");
-  // An error happened.
-});
 
