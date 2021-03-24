@@ -17,18 +17,16 @@ function register() {
   });
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(user => {
   if (user) {
     // User is signed in.
     // window.location.href="index4.html";
-    document.getElementById('signupbtn').style.display="none";
-    document.getElementById('signoutbtn').style.display="initial";
+    console.log('user logged in: ',user);
 
   } else {
     // No user is signed in.
     // window.location.href="index4.html";
-    document.getElementById('signupbtn').style.display="initial";
-    document.getElementById('signoutbtn').style.display="none";
+    console.log('user logged out');
  }
 });
 
