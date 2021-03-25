@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <title>Create new notes</title>
 </head>
 <body>
-    <input type="text" placeholder="enter title">
-    <input type="text" placeholder="write your notes here">
+  <form id="createnotes">
+    <input type="text" name="title" placeholder="enter title">
+    <input type="text"  name="notes" placeholder="write your notes here">
     <button>SAVE</button>
-    
+  </form>
+    <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDoqPlYgLEUUyirulXKMUULhAlj4ih3up0",
+      authDomain: "notesapp-efdd4.firebaseapp.com",
+      projectId: "notesapp-efdd4",
+      storageBucket: "notesapp-efdd4.appspot.com",
+      messagingSenderId: "678668896822",
+      appId: "1:678668896822:web:b149d646c41fc918ce2697",
+      measurementId: "G-J89YDXHP2Y"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth();
+    const db=firebase.firestore();
+  db.settings({timestampInSnapshots: true}) ;//for avoiding garrett errors 
+</script>
+    <script src="../(d)JS files/login.js"></script>
+    <script src="../(d)JS files/index.js"></script>
 </body>
 </html>

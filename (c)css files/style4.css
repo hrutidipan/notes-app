@@ -101,12 +101,12 @@ font-family:sans-serif;
 }
 #para1{
     text-align: left;
-    color:black;
+    color:rgb(6, 2, 26);
     word-spacing: 4px;
     line-height: 50px;
     font-family: 'Akaya Kanadaka', cursive;
     text-shadow: 2px;
-    font-size: larger;
+    font-size:larger;
     font-weight: bolder;
     
 }
