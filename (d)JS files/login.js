@@ -18,7 +18,7 @@ function register() {
 }
 
 const notelist=document.querySelector('#seepreviousnotes');
-const form=document.querySelector('#createnotes');
+const form=document.querySelector('.createnotes');
 
 function rendernote(doc){
   let li=document.createElement('li');
@@ -36,11 +36,11 @@ function rendernote(doc){
 }
 
 //getting data
-db.collection('user').get().then(snapshot =>{
-snapshot.docs.forEach(doc => {
-  rendernote(doc);
-});
-});
+//db.collection('user').get().then(snapshot =>{
+//snapshot.docs.forEach(doc => {
+  //rendernote(doc);
+//});
+//});
 
 //saving data
 form.addEventListener('submit',(e) =>{
@@ -53,16 +53,16 @@ form.addEventListener('submit',(e) =>{
   form.notes.value='';
 })
 
-const loggedoutlinks=document.querySelectorAll('.loggedout');
-const loggedinlinks=document.querySelectorAll('.loggedin');
+const loggedoutlink=document.querySelectorAll('.loggedout');
+const loggedinlink=document.querySelectorAll('.loggedin');
 
-const setupUI = (user) => {
+const setup= (user) => {
     if (user){
-        loggedinlinks.forEach(item =>item.style.display = 'block');
-        loggedoutlinks.forEach(item.style.display = 'none');
+        loggedinlink.forEach(item =>item.style.display = 'block');
+        loggedoutlink.forEach(item=>item.style.display = 'none');
     } else {
-        loggedinlinks.forEach(item =>item.style.display = 'none');
-        loggedoutlinks.forEach(item.style.display = 'block');
+        loggedinlink.forEach(item =>item.style.display = 'none');
+        loggedoutlink.forEach(item=>item.style.display = 'block');
     }
 }
 
@@ -70,19 +70,26 @@ firebase.auth().onAuthStateChanged(user => {
   if (user) {
     // User is signed in.
     // window.location.href="index4.html";
-    db.collection('user').get().then(snapshot =>{
-      snapshot.docs.forEach(doc => {
-        rendernote(doc);
-        setupUI(user);
-      });
-      });
+    console.log('user logged in');
+    
+        db.collection('user').get().then(snapshot =>{
+          snapshot.docs.forEach(doc => {
+            rendernote(doc);
+            
+          });
+          });
+        setup(user);  
+         
+      }
+    
 
-  } else {
+   else {
     // No user is signed in.
     // window.location.href="index4.html";
     console.log('user logged out');
-    setupUI();
+    setup();
     rendernote([]);
+    
  }
 });
 
