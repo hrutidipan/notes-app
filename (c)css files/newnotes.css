@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    height:100vh;
+    background-image: url("../(b)images/bg4.jpg");
+    background-size: cover;
+}
+.center{
+    width: 350px;
+    height: 400px;
+    position: absolute;  /*relative to the whole page*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*turns left and top by 50%*/
+    border: 2px solid;
+    border-radius:  20px; ;
+    background-color: rgba(8, 8, 228,0);
+}
+
+.text{
+    position: relative;
+    top:20px;
+    width: 80%;
+    height: 40px;
+    display: block;
+    margin: auto;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
+}
+
+#text5{
+    position: relative;
+    top: 0.01px;
+}
+
+#text6{
+
+    width: 80%;
+    height: 100px;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    text-align:center;
+    border-radius: 20px;
+    background-color: white;
+    
+}
+
+#button1{
+    height: 30px;
+    width: 85%;
+    display: block;     /*these two lines display and margin help to align to cente the object*/
+    margin: auto;
+    background:linear-gradient(rgba(3, 134, 91, 0.863),rgb(5, 248, 78));
+    border-radius: 20px;
+    cursor: pointer; 
+
+      
+}
+#button1:hover{
+    color: ivory;
+}
+
+#button2{
+    height: 30px;
+    width: 85%;
+    display: block;     /*these two lines display and margin help to align to cente the object*/
+    margin: auto;
+    background:linear-gradient(rgba(86, 5, 236, 0.863),rgb(6, 224, 253));
+    border-radius: 20px;
+    cursor: pointer; 
+
+      
+}
+
+#button2:hover{
+    color: ivory;
+}
+

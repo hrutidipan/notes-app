@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../(c)css files/newnotes.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <title>Create new notes</title>
 </head>
 <body>
+  <div class="box">
+   <div class="center">
   <form class="createnotes">
-    <input type="text" name="title" placeholder="enter title">
-    <input type="text"  name="notes" placeholder="write your notes here">
-    <input type="email"  name="email" placeholder="write your email here">
-    <button>SAVE</button>
-    <button onclick="update()">UPDATE</button>
+    <input type="text" class="text" name="title" placeholder="enter title"><br><br>
+    <input type="text" id="text6" name="notes" placeholder="write your notes here"><br><br>
+    <input type="email" class="text" id="text5" name="email" placeholder="write your email here"><br><br>
+    <button id="button1">SAVE</button><br>
+    <button  id="button2">UPDATE</button>
   </form>
+  </div>
+  </div>
     <script>
     var firebaseConfig = {
       apiKey: "AIzaSyDoqPlYgLEUUyirulXKMUULhAlj4ih3up0",

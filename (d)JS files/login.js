@@ -21,33 +21,45 @@ function register() {
   });
 }
 
+lb = function () { return document.createTextNode('<br/>'); }
+
 const notelist=document.querySelector('#seepreviousnotes');
 const form=document.querySelector('.createnotes');
 
 function rendernote(doc){
   let li=document.createElement('li');
   let title=document.createElement('span');
+  let lb=document.createElement('span');
   let notes=document.createElement('span');
   let cross=document.createElement('div');
   let email=document.createElement('email');
+  let timestamp=document.createElement('span');
+  
   //let update=document.createElement('update');
   li.setAttribute('data-id',doc.id);
   title.textContent=doc.data().TITLE;
+  lb.textContent='\n';
   notes.textContent=doc.data().NOTES;
   cross.textContent='DELETE';
   email.textContent=doc.data().EMAIL;
+  timestamp.textContent=doc.data().TIMESTAMP;
   //update.textContent='UPDATE';
 
   li.appendChild(title);
-
+  li.appendChild(lb);
   li.appendChild(notes);
-  
+  li.appendChild(lb);
   li.appendChild(email);
+  li.appendChild(lb);
+  li.appendChild(timestamp);
+  //li.appendChild(lb);
   
   li.appendChild(cross);
+  //li.appendChild(lb);
 
   //li.appendChild(update);
 
+ 
   notelist.appendChild(li);
 
   //deleting data
@@ -81,31 +93,36 @@ function rendernote(doc){
 //});
 
 //saving data
+let now=new Date();
 form.addEventListener('submit',(e) =>{
   e.preventDefault();
   db.collection('user').add({
     TITLE:form.title.value,
     NOTES:form.notes.value,
-    EMAIL:form.email.value
+    EMAIL:form.email.value,
+    TIMESTAMP:now.getTime() 
   });
   form.title.value='';
   form.notes.value='';
   form.email.value='';
 })
 
-
-function update(){
-  
-  db.collection('user').doc(title).update({
-    //TITLE:form.title.value,
+form.addEventListener('submit',(e1) =>{
+  e1.preventDefault();
+  db.collection('user').doc(title).update(
+    {
+    
     NOTES:form.notes.value,
-    EMAIL:form.email.value
+    EMAIL:form.email.value,
+    TIMESTAMP:now.getTime() 
   });
- // form.title.value='';
+  //form.title.value='';
   form.notes.value='';
   form.email.value='';
+})
 
-}
+
+
 
 const loggedoutlink=document.querySelectorAll('.loggedout');
 const loggedinlink=document.querySelectorAll('.loggedin');
@@ -125,12 +142,15 @@ firebase.auth().onAuthStateChanged(user => {
     // User is signed in.
     // window.location.href="index4.html";
     console.log('user logged in');
+
     
         db.collection('user').where('EMAIL','==',user.email).get().then(snapshot =>{
           snapshot.docs.forEach(doc => {
             rendernote(doc);
+            
           
           });
+          
           });
         setup(user);  
          
