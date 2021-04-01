@@ -25,72 +25,73 @@ lb = function () { return document.createTextNode('<br/>'); }
 
 const notelist=document.querySelector('#seepreviousnotes');
 const form=document.querySelector('.createnotes');
-
+const tbody=document.getElementById('tbody1');
 function rendernote(doc){
-  let li=document.createElement('li');
-  let title=document.createElement('span');
-  let lb=document.createElement('span');
-  let notes=document.createElement('span');
-  let cross=document.createElement('div');
-  let email=document.createElement('email');
-  let timestamp=document.createElement('span');
-  
-  //let update=document.createElement('update');
-  li.setAttribute('data-id',doc.id);
-  title.textContent=doc.data().TITLE;
-  lb.textContent='\n';
-  notes.textContent=doc.data().NOTES;
-  cross.textContent='DELETE';
-  email.textContent=doc.data().EMAIL;
-  timestamp.textContent=doc.data().TIMESTAMP;
-  //update.textContent='UPDATE';
-
-  li.appendChild(title);
-  li.appendChild(lb);
-  li.appendChild(notes);
-  li.appendChild(lb);
-  li.appendChild(email);
-  li.appendChild(lb);
-  li.appendChild(timestamp);
-  //li.appendChild(lb);
-  
-  li.appendChild(cross);
-  //li.appendChild(lb);
-
-  //li.appendChild(update);
-
  
-  notelist.appendChild(li);
+  //let update=document.createElement('update');
+  var li=document.createElement('span');
+  li.setAttribute('data-id',doc.id);
+  let cross=document.createElement('div');
+  var title=doc.data().TITLE;
+  //lb.textContent='\n';
+  var notes=doc.data().NOTES;
+  //var cross="DELETE";
+  var email=doc.data().EMAIL;
+  var timestamp=doc.data().TIMESTAMP;
 
-  //deleting data
+
+  //update.textContent='UPDATE';
+  
+  AddItemsToTable(title,notes,email,timestamp);
+  
+  cross.textContent='DELETE';
+  li.appendChild(cross);
+tbody.appendChild(li);
   cross.addEventListener('click',(e) =>{
     e.stopPropagation();
-    let id=e.target.parentElement.getAttribute('data-id'); //used to get the specific element
-    db.collection('user').doc(id).delete();
-  })
+     var id=e.target.parentElement.getAttribute('data-id'); //used to get the specific element
+     db.collection('user').doc(id).delete();
+   })
+  
 
-  // update.addEventListener('click',(e) =>{
-    //e.preventDefault();
-    // let id=e.target.parentElement.childElement(title);
-    // db.collection('user').doc(id).update({
-      
-    //  NOTES:form.notes.value,
-     
-    // });
-   
-    // form.notes.value='';
-   
-  // })
 }
 
 
+function AddItemsToTable(title,notes,email,timestamp){
+  var tbody=document.getElementById('tbody1');
+  var li=document.createElement('li');
+  var td1=document.createElement('td');
+  //var lb=document.createElement('td');
+  var td2=document.createElement('td');
+  var td3=document.createElement('td');
+  var td4=document.createElement('td');
+  //var td5=document.createElement('div');
+td1.innerHTML=title;
+td2.innerHTML=notes;
+td3.innerHTML=email;
+td4.innerHTML=timestamp;
+//td5.innerHTML=cross;
+  li.appendChild(td1);
+ // li.appendChild(lb);
+  li.appendChild(td2);
+  //li.appendChild(lb);
+  li.appendChild(td3);
+ // li.appendChild(lb);
+  li.appendChild(td4);
+  //li.appendChild(lb);
+  
+  //li.appendChild(td5);
+  //li.appendChild(lb);
 
-//getting data
-//db.collection('user').get().then(snapshot =>{
-//snapshot.docs.forEach(doc => {
-  //rendernote(doc);
-//});
-//});
+  //li.appendChild(update);
+ 
+  tbody.appendChild(li);
+ 
+}
+  //deleting data
+  
+ 
+
 
 //saving data
 let now=new Date();
@@ -109,7 +110,7 @@ form.addEventListener('submit',(e) =>{
 
 form.addEventListener('submit',(e) =>{
   e.preventDefault();
-  db.collection('user').doc(doc.data().TITLE).update({
+  db.collection('title').where('TITLE','==',title).update({
     //TITLE:form.title.value,
     NOTES:form.notes.value,
     EMAIL:form.email.value,
@@ -119,8 +120,6 @@ form.addEventListener('submit',(e) =>{
   form.notes.value='';
   form.email.value='';
 })
-
-
 
 
 
@@ -198,5 +197,7 @@ function signout() {
     window.alert("Error");
     // An error happened.
   });
+
 }
+
 
