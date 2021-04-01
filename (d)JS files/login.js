@@ -107,19 +107,20 @@ form.addEventListener('submit',(e) =>{
   form.email.value='';
 })
 
-form.addEventListener('submit',(e1) =>{
-  e1.preventDefault();
-  db.collection('user').doc(title).update(
-    {
-    
+form.addEventListener('submit',(e) =>{
+  e.preventDefault();
+  db.collection('user').doc(doc.data().TITLE).update({
+    //TITLE:form.title.value,
     NOTES:form.notes.value,
     EMAIL:form.email.value,
     TIMESTAMP:now.getTime() 
   });
-  //form.title.value='';
+  form.title.value='';
   form.notes.value='';
   form.email.value='';
 })
+
+
 
 
 
