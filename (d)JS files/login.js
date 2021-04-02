@@ -23,15 +23,17 @@ function register() {
 
 lb = function () { return document.createTextNode('<br/>'); }
 
-const notelist=document.querySelector('#seepreviousnotes');
+//const notelist=document.querySelector('#seepreviousnotes');
 const form=document.querySelector('.createnotes');
 const tbody=document.getElementById('tbody1');
+//const form12=document.querySelector('.createnotes12');
+
 function rendernote(doc){
- 
   //let update=document.createElement('update');
   var li=document.createElement('span');
   li.setAttribute('data-id',doc.id);
   let cross=document.createElement('div');
+  
   var title=doc.data().TITLE;
   //lb.textContent='\n';
   var notes=doc.data().NOTES;
@@ -45,7 +47,9 @@ function rendernote(doc){
   AddItemsToTable(title,notes,email,timestamp);
   
   cross.textContent='DELETE';
+  
   li.appendChild(cross);
+  
 tbody.appendChild(li);
   cross.addEventListener('click',(e) =>{
     e.stopPropagation();
@@ -88,40 +92,52 @@ td4.innerHTML=timestamp;
   tbody.appendChild(li);
  
 }
-  //deleting data
-  
+
+let titleT=document.getElementsByTagName('title');
+let notesT=document.getElementsByTagName('notes');
+let emailT=document.getElementsByTagName('email');
+
+ let titleV=titleT.value;
+ let notesV=notesT.value;
+ let emailV=emailT.value; 
+
+function Update(val,type){
+  if(type=='title') titleV=val;
+  else if(type=='notes') notesV=val;
+  else if(type=='email') emailV=val;
+}  
  
 
 
 //saving data
 let now=new Date();
-form.addEventListener('submit',(e) =>{
-  e.preventDefault();
-  db.collection('user').add({
-    TITLE:form.title.value,
-    NOTES:form.notes.value,
-    EMAIL:form.email.value,
+//form.addEventListener('submit',(e) =>{
+  //e.preventDefault();
+ function add_doc(){
+  db.collection('user').doc(titleV).set({
+    TITLE:titleV,
+    NOTES:notesV,
+    EMAIL:emailV,
     TIMESTAMP:now.getTime() 
   });
-  form.title.value='';
-  form.notes.value='';
-  form.email.value='';
-})
+  titleV='';
+  notesV='';
+  emailV='';
+}
 
-form.addEventListener('submit',(e) =>{
-  e.preventDefault();
-  db.collection('title').where('TITLE','==',title).update({
-    //TITLE:form.title.value,
-    NOTES:form.notes.value,
-    EMAIL:form.email.value,
+
+function update_doc(){
+  db.collection('user').doc(titleV).update(
+    {
+    
+    NOTES:notesV,
+    EMAIL:emailV,
     TIMESTAMP:now.getTime() 
   });
-  form.title.value='';
-  form.notes.value='';
-  form.email.value='';
-})
-
-
+ // titleV='';
+  //notesV='';
+  //emailV='';
+}
 
 
 const loggedoutlink=document.querySelectorAll('.loggedout');
@@ -144,14 +160,20 @@ firebase.auth().onAuthStateChanged(user => {
     console.log('user logged in');
 
     
-        db.collection('user').where('EMAIL','==',user.email).get().then(snapshot =>{
-          snapshot.docs.forEach(doc => {
-            rendernote(doc);
-            
+        db.collection('user').where('EMAIL','==',user.email).onSnapshot(snapshot =>{
+         let changes=snapshot.docChanges();
+         changes.forEach(change =>{
+           if(change.type == 'added'){
+             rendernote(change.doc);
+           } else if (change.type=='removed'){
+             let li=tbody.querySelector('[data-id=' + change.doc.id +']');
+             tbody.removeChild(li);
+           }
+         })
           
           });
           
-          });
+          
         setup(user);  
          
       }
