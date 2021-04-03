@@ -113,18 +113,20 @@ function Update(val,type){
 let now=new Date();
 //form.addEventListener('submit',(e) =>{
   //e.preventDefault();
- function add_doc(){
+
+function add_doc(){
+  
   db.collection('user').doc(titleV).set({
     TITLE:titleV,
     NOTES:notesV,
     EMAIL:emailV,
     TIMESTAMP:now.getTime() 
   });
-  titleV='';
-  notesV='';
-  emailV='';
+  //titleV='';
+  //notesV='';
+  //emailV='';
+  
 }
-
 
 function update_doc(){
   db.collection('user').doc(titleV).update(
@@ -134,20 +136,47 @@ function update_doc(){
     EMAIL:emailV,
     TIMESTAMP:now.getTime() 
   });
- // titleV='';
+  //titleV='';
   //notesV='';
   //emailV='';
+  
+}
+
+function retrieve_notes(){
+  var docRef = db.collection("user").doc(titleV);
+
+  docRef.get().then((doc) => {
+      if (doc.exists) {
+          console.log("Document data:", doc.data());
+          notesT.value=doc.data().NOTES;
+          emailT.value=doc.data().EMAIL;
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+  }).catch((error) => {
+      console.log("Error getting document:", error);
+  });
 }
 
 
 const loggedoutlink=document.querySelectorAll('.loggedout');
 const loggedinlink=document.querySelectorAll('.loggedin');
+const user_details=document.querySelector('.userdetails');
 
 const setup= (user) => {
     if (user){
+     
+      
         loggedinlink.forEach(item =>item.style.display = 'block');
         loggedoutlink.forEach(item=>item.style.display = 'none');
+        var user = firebase.auth().currentUser;
+        if(user != null){
+          var email_id=user.email;
+          user_details.innerHTML="Welcome user " + email_id;
+        }
     } else {
+      user_details.innerHTML='';
         loggedinlink.forEach(item =>item.style.display = 'none');
         loggedoutlink.forEach(item=>item.style.display = 'block');
     }
@@ -162,7 +191,8 @@ firebase.auth().onAuthStateChanged(user => {
     
         db.collection('user').where('EMAIL','==',user.email).onSnapshot(snapshot =>{
          let changes=snapshot.docChanges();
-         changes.forEach(change =>{
+         console.log(changes);
+        changes.forEach(change =>{
            if(change.type == 'added'){
              rendernote(change.doc);
            } else if (change.type=='removed'){

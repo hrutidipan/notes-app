@@ -10,13 +10,16 @@
 <body>
   <div class="box">
    <div class="center">
-   <!-- <form class="createnotes"> -->
+    
     <input type="text" class="text" name="title" placeholder="enter title" oninput="Update(this.value,'title')"><br><br>
     <input type="text" id="text6" name="notes" placeholder="write your notes here" oninput="Update(this.value,'notes')"><br><br>
     <input type="email" class="text" id="text5" name="email" placeholder="write your email here" oninput="Update(this.value,'email')"><br><br>
     <button id="button1" onclick="add_doc()">SAVE</button><br>
-    <button id="button2" onclick="update_doc()">UPDATE</button>
-   <!-- </form> -->
+    <button id="button2" onclick="update_doc()">UPDATE</button><br>
+    <button id="button3" onclick="retrieve_notes()">SEARCH NOTES</button><br>
+    <p id="instructions">PLEASE ENTER TITLE AND SELECT SEARCH NOTES BUTTON TO SEARCH YOUR NOTES.<i><u>(The data will be displayed on the console of this page)</u></i></p>
+
+   
   </div>
   </div>
     <script>

@@ -10,7 +10,7 @@
 }
 .center{
     width: 350px;
-    height: 400px;
+    height: 550px;
     position: absolute;  /*relative to the whole page*/
     top: 50%;
     left: 50%;
@@ -50,7 +50,10 @@
     background-color: white;
     
 }
-
+#instructions{
+    color: rgb(248, 58, 10);
+    font-weight: bolder;
+}
 #button1{
     height: 30px;
     width: 85%;
@@ -81,4 +84,22 @@
 #button2:hover{
     color: ivory;
 }
+
+#button3{
+    height: 30px;
+    width: 85%;
+    display: block;     /*these two lines display and margin help to align to cente the object*/
+    margin: auto;
+    background:linear-gradient(rgba(34, 31, 1, 0.863),rgb(253, 249, 6));
+    border-radius: 20px;
+    cursor: pointer; 
+
+      
+}
+
+#button3:hover{
+    color: ivory;
+}
+
+
 
