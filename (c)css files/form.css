@@ -9,6 +9,13 @@ background-size: cover;
 
 }
 
+.bgimg1{
+    height: 100vh;
+    background-image:url("../(b)images/bg5.jpg");
+background-size: cover;
+
+}
+
 #profile{
 
     width: 120px;
@@ -19,15 +26,28 @@ background-size: cover;
 }
 .centerdiv{
     width: 350px;
-    height: 400px;
+    height: 420px;
     position: absolute;  /*relative to the whole page*/
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%); /*turns left and top by 50%*/
     border: 2px solid;
     border-radius:  20px; ;
-    background-color: rgba(8, 8, 228,0);
+    background-color: rgba(6, 6, 216,0);
 }
+
+.centerdiv1{
+    width: 350px;
+    height: 300px;
+    position: absolute;  /*relative to the whole page*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*turns left and top by 50%*/
+    border: 2px solid;
+    border-radius:  40px; ;
+    background-color: rgba(208, 208, 238,1);
+}
+
 #s1{
     text-align: center;
     font-family: 'Libre Baskerville', serif;
@@ -36,6 +56,25 @@ background-size: cover;
    color: black;
    
 }
+#reset{
+    position: relative;
+    left:30px;
+}
+#reset:link{  
+    color: red;
+    background-color: transparent; 
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+#reset:hover{
+    color: blue;
+}
+#reset:active{
+    color: green;
+}
+
+
 
 #text1{
 

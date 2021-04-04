@@ -252,4 +252,29 @@ function signout() {
 
 }
 
+function resetpassword(){
+
+  var auth=firebase.auth();
+  var email=document.getElementById('text1').value;
+
+  if(email !="")
+  {
+   auth.sendPasswordResetEmail(email).then(function(){
+
+window.alert("An email has been sent to you,please proceed as given in that email");
+   })
+   .catch(function(error){
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+    window.alert("Error :" + errorMessage);
+   });
+
+  }
+  else{
+    window.alert("please enter email first.");
+  }
+}
+
 
