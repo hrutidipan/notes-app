@@ -112,7 +112,7 @@ function login(){
     // Signed in
     var user = userCredential.user;
     window.alert("login successful");
-    window.location.href="index4.html";
+    window.location.href="index.html";
     
     // ...
   })
