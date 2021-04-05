@@ -51,17 +51,19 @@ function add_doc(){
 }
 
 function update_doc(){
+  var user = firebase.auth().currentUser;
+  var emaild=user.email;
   db.collection('user').doc(titleV).update(
     {
     
     NOTES:notesV,
-    EMAIL:user.email,
+    EMAIL:emaild,
     TIMESTAMP:now.getTime() 
   });
   //titleV='';
   //notesV='';
   //emailV='';
-  
+  window.alert(" note updated successfully");
 }
 
 //const banner=document.querySelector('#tbody1');
