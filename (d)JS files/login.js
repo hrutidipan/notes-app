@@ -51,10 +51,16 @@ function rendernote(doc){
   li.appendChild(cross);
   
 tbody.appendChild(li);
+//cross.addEventListener('click', function(){
+ //location.reload();
+//})
   cross.addEventListener('click',(e) =>{
     e.stopPropagation();
+    
      var id=e.target.parentElement.getAttribute('data-id'); //used to get the specific element
+     
      db.collection('user').doc(id).delete();
+     
    })
   
 
@@ -93,131 +99,9 @@ td4.innerHTML=timestamp;
  
 }
 
-let titleT=document.getElementsByTagName('title');
-let notesT=document.getElementsByTagName('notes');
-let emailT=document.getElementsByTagName('email');
-
- let titleV=titleT.value;
- let notesV=notesT.value;
- let emailV=emailT.value; 
-
-function Update(val,type){
-  if(type=='title') titleV=val;
-  else if(type=='notes') notesV=val;
-  else if(type=='email') emailV=val;
-}  
- 
 
 
-//saving data
-let now=new Date();
-//form.addEventListener('submit',(e) =>{
-  //e.preventDefault();
 
-function add_doc(){
-  
-  db.collection('user').doc(titleV).set({
-    TITLE:titleV,
-    NOTES:notesV,
-    EMAIL:emailV,
-    TIMESTAMP:now.getTime() 
-  });
-  //titleV='';
-  //notesV='';
-  //emailV='';
-  
-}
-
-function update_doc(){
-  db.collection('user').doc(titleV).update(
-    {
-    
-    NOTES:notesV,
-    EMAIL:emailV,
-    TIMESTAMP:now.getTime() 
-  });
-  //titleV='';
-  //notesV='';
-  //emailV='';
-  
-}
-
-function retrieve_notes(){
-  var docRef = db.collection("user").doc(titleV);
-
-  docRef.get().then((doc) => {
-      if (doc.exists) {
-          console.log("Document data:", doc.data());
-          notesT.value=doc.data().NOTES;
-          emailT.value=doc.data().EMAIL;
-      } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-      }
-  }).catch((error) => {
-      console.log("Error getting document:", error);
-  });
-}
-
-
-const loggedoutlink=document.querySelectorAll('.loggedout');
-const loggedinlink=document.querySelectorAll('.loggedin');
-const user_details=document.querySelector('.userdetails');
-
-const setup= (user) => {
-    if (user){
-     
-      
-        loggedinlink.forEach(item =>item.style.display = 'block');
-        loggedoutlink.forEach(item=>item.style.display = 'none');
-        var user = firebase.auth().currentUser;
-        if(user != null){
-          var email_id=user.email;
-          user_details.innerHTML="Welcome user " + email_id;
-        }
-    } else {
-      user_details.innerHTML='';
-        loggedinlink.forEach(item =>item.style.display = 'none');
-        loggedoutlink.forEach(item=>item.style.display = 'block');
-    }
-}
-
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    // User is signed in.
-    // window.location.href="index4.html";
-    console.log('user logged in');
-
-    
-        db.collection('user').where('EMAIL','==',user.email).onSnapshot(snapshot =>{
-         let changes=snapshot.docChanges();
-         console.log(changes);
-        changes.forEach(change =>{
-           if(change.type == 'added'){
-             rendernote(change.doc);
-           } else if (change.type=='removed'){
-             let li=tbody.querySelector('[data-id=' + change.doc.id +']');
-             tbody.removeChild(li);
-           }
-         })
-          
-          });
-          
-          
-        setup(user);  
-         
-      }
-    
-
-   else {
-    // No user is signed in.
-    // window.location.href="index4.html";
-    console.log('user logged out');
-    setup();
-    rendernote([]);
-    
- }
-});
 
 function login(){
   var useremail=document.getElementById('text1').value;

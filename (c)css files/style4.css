@@ -147,6 +147,16 @@
         font-weight: bolder;
         
     }
+
+    .table th,
+    .table td{
+        padding: 30px 30px;
+    }
+    
+    
+    
+        
+    
     
     #create{
         height: 50px;

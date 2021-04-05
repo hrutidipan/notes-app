@@ -10,14 +10,15 @@
 }
 .center{
     width: 350px;
-    height: 550px;
+    height: 470px;
     position: absolute;  /*relative to the whole page*/
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%); /*turns left and top by 50%*/
     border: 2px solid;
     border-radius:  20px; ;
-    background-color: rgba(221, 221, 236, 1);
+    background-image:url('../(b)images/bg8.jpg');
+    background-size: cover;
 }
 
 .text{
@@ -59,7 +60,7 @@
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(rgba(3, 134, 91, 0.863),rgb(5, 248, 78));
+    background-color: rgb(3, 247, 3);
     border-radius: 20px;
     cursor: pointer; 
 
@@ -74,7 +75,7 @@
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(rgba(86, 5, 236, 0.863),rgb(6, 224, 253));
+    background:linear-gradient(rgba(4, 247, 44, 0.863),rgb(249, 251, 252));
     border-radius: 20px;
     cursor: pointer; 
 
@@ -90,7 +91,7 @@
     width: 85%;
     display: block;     /*these two lines display and margin help to align to cente the object*/
     margin: auto;
-    background:linear-gradient(rgba(34, 31, 1, 0.863),rgb(253, 249, 6));
+    background:linear-gradient(rgba(11, 236, 3, 0.863),rgb(255, 255, 254));
     border-radius: 20px;
     cursor: pointer; 
 

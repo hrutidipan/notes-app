@@ -13,7 +13,7 @@
     
     <input type="text" class="text" name="title" placeholder="enter title" oninput="Update(this.value,'title')"><br><br>
     <input type="text" id="text6" name="notes" placeholder="write your notes here" oninput="Update(this.value,'notes')"><br><br>
-    <input type="email" class="text" id="text5" name="email" placeholder="write your email here" oninput="Update(this.value,'email')"><br><br>
+    <!-- <input type="email" class="text" id="text5" name="email" placeholder="write your email here" oninput="Update(this.value,'email')"><br><br> -->
     <button id="button1" onclick="add_doc()">SAVE</button><br>
     <button id="button2" onclick="update_doc()">UPDATE</button><br>
     <button id="button3" onclick="retrieve_notes()">SEARCH NOTES</button><br>
@@ -38,7 +38,7 @@
     const db=firebase.firestore();
   db.settings({timestampInSnapshots: true}) ;//for avoiding garrett errors 
 </script>
-    <script src="../(d)JS files/login.js"></script>
+    <!-- <script src="../(d)JS files/login.js"></script> -->
     <script src="../(d)JS files/index.js"></script>
 </body>
 </html>
