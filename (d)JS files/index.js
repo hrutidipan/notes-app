@@ -75,8 +75,8 @@ function retrieve_notes(){
   docRef.get().then((doc) => {
       if (doc.exists) {
           console.log("Document data:", doc.data());
-          notesT.value=doc.data().NOTES;
-          emailT.value=doc.data().EMAIL;
+          //notesT.value=doc.data().NOTES;
+          //emailT.value=doc.data().EMAIL;
       } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
